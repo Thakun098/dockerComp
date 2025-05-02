@@ -1,19 +1,29 @@
-version: '3.8'
 services:
-  db:
-    container_name: postgres
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_USER: postgres
-    ports:
-      - "5432:5432"
-    
-  pgadmin:
-    container_name: pgadmin4
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: thakun.tant@northbkk.ac.th
-      PGADMIN_DEFAULT_PASSWORD: 1234
-    ports:
-      - "8080:80"
+ Database:
+   container_name: postgres
+   image: postgres
+   environment:
+     POSTGRES_USER: postgres
+     POSTGRES_PASSWORD: 1234
+
+   ports:
+     - "5432:5432"
+   networks:
+     - mynetwork
+
+pgAdmin:
+   container_name: pgAdmin
+   image: dpage/pgadmin4
+   environment:
+    - PGADMIN_DEFAULT_EMAIL: example@domain.com
+    - PGADMIN_DEFAULT_PASSWORD: 1234
+   
+   ports:
+     - "8080:80"
+   networks:
+     - mynetwork
+
+networks:
+ mynetwork:
+   driver: bridge
+
