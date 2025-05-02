@@ -15,8 +15,8 @@ pgAdmin:
    container_name: pgAdmin
    image: dpage/pgadmin4
    environment:
-    - PGADMIN_DEFAULT_EMAIL: example@domain.com
-    - PGADMIN_DEFAULT_PASSWORD: 1234
+     PGADMIN_DEFAULT_EMAIL: example@domain.com
+     PGADMIN_DEFAULT_PASSWORD: 1234
    
    ports:
      - "8080:80"
